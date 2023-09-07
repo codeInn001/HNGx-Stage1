@@ -30,7 +30,7 @@ function formatTime(hour, minutes, seconds) {
     if (seconds < 10) {
         seconds = '0' + seconds
     }
-    return UTCTimeSelector.innerText = `${hour} : ${minutes} : ${seconds}`
+    return UTCTimeSelector.innerText = `${hour} : ${minutes} : ${seconds}` 
 }
 
 writeDayOfTheWeek()
