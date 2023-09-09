@@ -6,7 +6,7 @@ function writeDayOfTheWeek() {
     const getDayOfWeek = now.getUTCDay()
     console.log(getDayOfWeek)
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satuday"]
-    dayOfTheWeek.innerText = dayNames[getDayOfWeek - 1]
+    dayOfTheWeek.innerText = dayNames[getDayOfWeek]
 }
 
 
