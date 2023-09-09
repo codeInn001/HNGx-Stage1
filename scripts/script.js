@@ -2,10 +2,11 @@ const dayOfTheWeek = document.querySelector('.day-of-week')
 const UTCTimeSelector = document.querySelector('.UTC-time')
 const now = new Date()
 
-function writeDayOfTheWeek () {
+function writeDayOfTheWeek() {
     const getDayOfWeek = now.getUTCDay()
+    console.log(getDayOfWeek)
     const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satuday"]
-    dayOfTheWeek.innerText = dayNames[getDayOfWeek]
+    dayOfTheWeek.innerText = dayNames[getDayOfWeek - 1]
 }
 
 
@@ -13,25 +14,11 @@ function writeDayOfTheWeek () {
 
 function setTime() {
     const now = new Date()
-    const hour = now.getUTCHours()
-    const minutes = now.getUTCMinutes()
-    const seconds = now.getUTCSeconds()
-    formatTime(hour, minutes, seconds)
+    const utc_now = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+    
+    UTCTimeSelector.innerText = `${utc_now.getTime()}`
 }
 
-
-function formatTime(hour, minutes, seconds) {
-    if (hour < 10) {
-        hour = '0' + hour
-    }
-    if (minutes < 10) {
-        minutes = '0' + minutes
-    }
-    if (seconds < 10) {
-        seconds = '0' + seconds
-    }
-    return UTCTimeSelector.innerText = `${hour} : ${minutes} : ${seconds}` 
-}
 
 writeDayOfTheWeek()
 setInterval(setTime, 1000)
